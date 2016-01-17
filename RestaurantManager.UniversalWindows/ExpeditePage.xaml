@@ -26,6 +26,44 @@
             <RowDefinition Height="0.10*"/>
         </Grid.RowDefinitions>
         <GridView Grid.Row="1" ItemsSource="{Binding OrderItems}">
+            
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <!--  <StackPanel Height="200" Padding="5" Margin="5"> -->
+                    <Grid Background="Coral"  Height="200" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollMode="Auto">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <ListView Background="CadetBlue"  Grid.Row="0" ItemsSource="{Binding Items}" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Vertical">
+                                        <TextBlock>
+                                            <Run Text="{Binding Title}" />
+                                        </TextBlock>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <TextBlock Grid.Row="1" Margin="5">
+                                <Run Text="Special Requests: " />
+                                <Run Text="{Binding SpecialRequests}" />
+                        </TextBlock>
+                        <Button Grid.Row="2" Margin="5" Background="DarkGray"
+                                VerticalAlignment="Bottom"  HorizontalAlignment="Center" 
+                                Content="Delete" />
+                    </Grid>
+                        
+                    
+                       
+                    
+
+                </DataTemplate>
+            </GridView.ItemTemplate>
+            
+
         </GridView>
         <Button Content="Clear All Orders" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" />
     </Grid>
