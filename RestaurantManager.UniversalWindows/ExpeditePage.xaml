@@ -39,20 +39,24 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Vertical">
-                                        <TextBlock>
+                                        <TextBlock Style="{StaticResource SubtitleTextBlockStyle}">
                                             <Run Text="{Binding Title}" />
                                         </TextBlock>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
                         </ListView>
-                        <TextBlock Grid.Row="1" Margin="5">
-                                <Run Text="Table: " />
+                        <StackPanel Grid.Row="1">
+                            <TextBlock Margin="5" Style="{StaticResource TitleTextBlockStyle}">
                                 <Run Text="{Binding Table.Description}" />
-                                <LineBreak />
+                            </TextBlock>
+                            <TextBlock Margin="5" Style="{StaticResource CaptionTextBlockStyle}">
                                 <Run Text="Special Requests: " />
+                                <LineBreak />
                                 <Run Text="{Binding SpecialRequests}" />
-                        </TextBlock>
+                            </TextBlock>
+                        </StackPanel>
+                        
                         <Button Grid.Row="2" Margin="5" Background="DarkGray"
                                 VerticalAlignment="Bottom"  HorizontalAlignment="Center" 
                                 Content="Delete" />
