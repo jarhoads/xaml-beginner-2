@@ -26,15 +26,14 @@
             <RowDefinition Height="0.10*"/>
         </Grid.RowDefinitions>
         <GridView Grid.Row="1" ItemsSource="{Binding OrderItems}">
-            
+            <!-- data template with menu items, special requests, table name, and delete button -->
             <GridView.ItemTemplate>
                 <DataTemplate>
-                    <!--  <StackPanel Height="200" Padding="5" Margin="5"> -->
-                    <Grid Background="Coral"  Height="200" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollMode="Auto">
+                    <Grid Background="Coral" ScrollViewer.VerticalScrollMode="Auto" ScrollViewer.HorizontalScrollMode="Auto">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="*" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
+                            <RowDefinition Height="100" />
                         </Grid.RowDefinitions>
                         <ListView Background="CadetBlue"  Grid.Row="0" ItemsSource="{Binding Items}" >
                             <ListView.ItemTemplate>
@@ -48,6 +47,9 @@
                             </ListView.ItemTemplate>
                         </ListView>
                         <TextBlock Grid.Row="1" Margin="5">
+                                <Run Text="Table: " />
+                                <Run Text="{Binding Table.Description}" />
+                                <LineBreak />
                                 <Run Text="Special Requests: " />
                                 <Run Text="{Binding SpecialRequests}" />
                         </TextBlock>
@@ -55,15 +57,9 @@
                                 VerticalAlignment="Bottom"  HorizontalAlignment="Center" 
                                 Content="Delete" />
                     </Grid>
-                        
-                    
-                       
-                    
-
                 </DataTemplate>
             </GridView.ItemTemplate>
             
-
         </GridView>
         <Button Content="Clear All Orders" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2" />
     </Grid>
